@@ -17,6 +17,13 @@
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
+  <script>
+    $(function () {
+      // Load header.html into the <header> element
+      $('#playlist').load('./assets/html/playlist.html');
+    });
+  </script>
+
   <!--
     - google font link
   -->
@@ -42,11 +49,11 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+          <img src="./assets/images/my-avatar.png" alt="Jiayi Wu" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
+          <h1 class="name" title="Jiayi Wu">Jiayi Wu</h1>
 
           <p class="title">Web developer</p>
         </div>
@@ -74,7 +81,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="mailto:wjysixx@icloud.com" class="contact-link">wjysixx@icloud.com</a>
             </div>
 
           </li>
@@ -88,7 +95,7 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+              <a href="tel:+16152431578" class="contact-link">+1 (615) 243-1578</a>
             </div>
 
           </li>
@@ -102,7 +109,7 @@
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
 
-              <time datetime="1982-06-23">June 23, 1982</time>
+              <time datetime="2002-04-23">April 23, 2002</time>
             </div>
 
           </li>
@@ -116,7 +123,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Sacramento, California, USA</address>
+              <address>Nashville, TN, USA</address>
             </div>
 
           </li>
@@ -128,20 +135,14 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
+            <a href="https://github.com/JaneWu423" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
             <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
+              <ion-icon name="logo-wechat"></ion-icon>
             </a>
           </li>
 
@@ -165,7 +166,7 @@
         - #NAVBAR
       -->
 
-      <nav class="navbar">
+      <!-- <nav class="navbar">
 
         <ul class="navbar-list">
 
@@ -187,6 +188,22 @@
 
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav> -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Playlist</button>
           </li>
 
         </ul>
@@ -506,7 +523,7 @@
 
 
 
-
+      <playlist id="playlist"></playlist>
 
       <!--
         - #RESUME
