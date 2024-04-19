@@ -1,0 +1,31 @@
+# Dependency directories
+node_modules/
+npm-debug.log
+
+# OS or editor temporary files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Log files
+*.log
+
+# Build directories
+/build/
+/dist/
+/out/
+
+# Environment variables file
+.env
+
+# Package-lock files
+package-lock.json
+yarn.lock
+
+# IDE files
+.idea/
+*.iml
+
+# Ignore local development config files
+config/dev.env
+
