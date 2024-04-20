@@ -122,28 +122,43 @@ app.post("/edit_songs", async (req, res) => {
   const { song, singer, lang } = req.body;
 
   // Check required fields
-  if (!song || !singer || !lang) {
+  if (!song || !lang) {
     return res.status(400).json({ message: "Required fields are missing" });
   }
-
+  console.log(song, singer, lang);
   try {
-    // Check if a song with the same name and singer already exists
-    const existingItem = await Item.findOne({ song, singer, lang });
+    if (singer === 'undefined') {
+      // Check if a song with the same name and singer already exists
+      const existingItem = await Item.findOne({ song, lang });
 
-    if (existingItem) {
-      const updatedItem = await Item.findOneAndUpdate(
-        { song, singer, lang },
-        { $inc: { sung: 1 } },
-        { new: true }
-      );
-      res.status(200).json(updatedItem);
-      emitter.emit("update", {
-        message: "New update available",
-      });
-      return;
-    }else{
+      if (existingItem) {
+        const updatedItem = await Item.findOneAndUpdate(
+          { song, lang },
+          { $inc: { sung: 1 } },
+          { new: true }
+        );
+        res.status(200).json(updatedItem);
+      } else {
         res.status(404).json({ message: "Item not found" });
+      }
+    } else {
+      // Check if a song with the same name and singer already exists
+      const existingItem = await Item.findOne({ song, singer, lang });
+      if (existingItem) {
+        const updatedItem = await Item.findOneAndUpdate(
+          { song, singer, lang },
+          { $inc: { sung: 1 } },
+          { new: true }
+        );
+        res.status(200).json(updatedItem);
+      } else {
+        res.status(404).json({ message: "Item not found" });
+      }
     }
+    emitter.emit("update", {
+      message: "New update available",
+    });
+    return;
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -173,30 +188,6 @@ app.get("/updates", (req, res) => {
   });
 });
 
-// // Endpoint to trigger updates (for demonstration)
-// app.post('/trigger-update', (req, res) => {
-//   // Emit 'update' event to all connected clients
-// });
-
-app.post("/add_songs", async (req, res) => {
-  const item = new Item({
-    song: req.body.song,
-    singer: req.body.singer,
-    lang: req.body.lang,
-    user: req.body.user,
-    date_added: req.body.date_added,
-    like: req.body.like,
-    sung: req.body.sung,
-    tags: req.body.tags,
-  });
-
-  try {
-    const newItem = await item.save();
-    res.status(201).json(newItem);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
 
 // Start the server
 app.listen(PORT, () => {
