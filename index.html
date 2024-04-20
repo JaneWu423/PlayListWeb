@@ -146,9 +146,6 @@
     </aside>
 
 
-
-
-
     <!--
       - #main-content
     -->
@@ -175,12 +172,8 @@
 
       </nav>
 
-
-
-
-
       <!--
-        - #ABOUT
+        - #Playlist
       -->
 
       <article class="playlist" data-page="playlist">
@@ -193,7 +186,7 @@
       
           <div class="title-wrapper">
             <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+              <ion-icon name="musical-note-outline"></ion-icon>
             </div>
       
             <h3 class="h3">Mine</h3>
@@ -209,7 +202,7 @@
       
           <div class="title-wrapper">
             <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+              <ion-icon name="musical-notes-outline"></ion-icon>
             </div>
       
             <h3 class="h3">Shared</h3>
@@ -225,13 +218,49 @@
       
           <h3 class="h3 skills-title">语种</h3>
       
-          <ul class="skills-list content-card">
-
-      
-          </ul>
+          <ul class="skills-list content-card"></ul>
       
         </section>
-      
+
+
+        <section class="song-form">
+        
+          <h3 class="h3 form-title">添加歌曲</h3>
+        
+          <form action="#" class="form" data-form>
+        
+            <div class="input-wrapper">
+              <input type="text" name="song" class="form-input" placeholder="歌名" required data-form-input>
+        
+              <input type="text" name="singer" class="form-input" placeholder="歌手" default="" required data-form-input>
+            </div>
+            <div class="input-wrapper">
+              <select id="lang" name="lang" class="form-input" required>
+                <option value="">语言</option>
+                <option value="中文">中文</option>
+                <option value="英语">英语</option>
+                <option value="日语">日语</option>
+                <option value="韩语">韩语</option>
+                <option value="法语">法语</option>
+                <option value="德语">德语</option>
+                <option value="西语">西语</option>
+                <!-- Add more language options as needed -->
+              </select>
+              <input type="text" name="user" class="form-input" placeholder="添加者" required data-form-input>
+            </div>
+            <div class="input-wrapper">
+              <input type="number" class="form-input" name="sung" placeholder="已点次数" min="0" step="1" default="0"  required data-form-input>
+              <input type="text" name="tags" class="form-input" placeholder="类型，标签" data-form-input>
+            </div>
+        
+            <button class="form-btn" type="submit" data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>加入歌单</span>
+            </button>
+        
+          </form>
+        
+        </section>
       </article>
 
     </div>
