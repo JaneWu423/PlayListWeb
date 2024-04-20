@@ -92,7 +92,6 @@ app.post("/add_songs", async (req, res) => {
       emitter.emit("update", {
         message: "New update available",
       });
-
       return;
     } else {
       // Create a new song document if no duplicate is found
@@ -157,7 +156,6 @@ app.post("/edit_songs", async (req, res) => {
     emitter.emit("update", {
       message: "New update available",
     });
-    return;
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
