@@ -22,9 +22,11 @@ $(function () {
               item.lang
             }</p></div><div class="symbol-item"><span><ion-icon name="heart-half-outline"></ion-icon>${
               item.like
-            } 赞</span><span><ion-icon name="play-skip-forward"></ion-icon>点过 ${
-              item.sung
-            } 次</span>
+            } 赞</span><span><button onclick="playSkipForward('${
+              item.song
+            }', '${item.singer}', '${item.lang}')">
+  <ion-icon name="play-skip-forward"></ion-icon>
+</button>点过 ${item.sung} 次</span>
             </div>`
           );
           itemsContainer.append(itemElement);
@@ -41,9 +43,11 @@ $(function () {
               item.lang
             }</p></div><div class="symbol-item"><span><ion-icon name="heart-half-outline"></ion-icon>${
               item.like
-            } 赞</span><span><ion-icon name="play-skip-forward"></ion-icon>点过 ${
-              item.sung
-            } 次</span>
+            } 赞</span><span><button onclick="playSkipForward('${
+              item.song
+            }', '${item.singer}', '${item.lang}')">
+  <ion-icon name="play-skip-forward"></ion-icon>
+</button>点过 ${item.sung} 次</span>
             </div>`
           );
           itemsContainer1.append(itemElement);
@@ -75,3 +79,26 @@ $(function () {
     },
   });
 });
+
+
+function playSkipForward(song, singer, lang) {
+  fetch("/edit_songs", {
+    method: "post",
+    body: JSON.stringify({song, singer, lang}),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((res) => {
+      if (res.status === 201) {
+        console.log("Post successfully created!");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
