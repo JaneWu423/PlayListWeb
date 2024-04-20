@@ -74,8 +74,5 @@ eventSource.onerror = function (error) {
 };
 
 eventSource.onmessage = function (event) {
-  const data = JSON.parse(event.data);
-  console.log("Received:", data);
-  // reload the page
   location.reload(true);
 };
