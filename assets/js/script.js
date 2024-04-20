@@ -84,26 +84,23 @@ $(document).on("click", ".play-button", function () {
   const singer = $(this).data("singer");
   const lang = $(this).data("lang");
 
-  playSkipForward(song, singer, lang);
+    fetch("/edit_songs", {
+      method: "POST",
+      body: JSON.stringify({ song, singer, lang }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((res) => {
+        if (res.status === 201) {
+          console.log("Post successfully created!");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 });
 
-function playSkipForward(song, singer, lang) {
-  fetch("/edit_songs", {
-    method: "POST",
-    body: JSON.stringify({ song, singer, lang }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((res) => {
-      if (res.status === 201) {
-        console.log("Post successfully created!");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
