@@ -23,7 +23,7 @@ submitBtn.addEventListener("click", function () {
   const singer = $('input[name="singer"]').val().trim();
   const tags = $('input[name="tags"]').val().trim();
   const user = $('input[name="user"]').val().trim();
-  const sung = $('input[name="sung"]').val();
+  const sung = parseInt($('input[name="sung"]')) || 0;
   const lang = $('select[name="lang"]').val();
 
   // Check if required fields are empty

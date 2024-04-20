@@ -79,7 +79,7 @@ app.post("/add_songs", async (req, res) => {
       //   modify the like field of the item to increment 1
       const updatedItem = await Item.findOneAndUpdate(
         { song, singer, lang },
-        { $inc: { like: 1 } },
+        { $inc: { like: inc } },
         { new: true }
       );
       res.status(200).json(updatedItem);
