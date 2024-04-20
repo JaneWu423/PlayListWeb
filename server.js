@@ -23,7 +23,7 @@ const SongSchema = new mongoose.Schema({
 });
 
 // Create a model for the Item collection
-const Item = mongoose.model("Item", SongSchema, "ktv");
+const Item = mongoose.model("Item", SongSchema, "songs");
 
 // Connect to MongoDB
 mongoose

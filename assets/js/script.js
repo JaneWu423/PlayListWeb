@@ -77,6 +77,13 @@ eventSource.onmessage = function (event) {
   location.reload(true);
 };
 
+$(document).on("click", ".play-button", function () {
+  const song = $(this).data("song");
+  const singer = $(this).data("singer");
+  const lang = $(this).data("lang");
+
+  playSkipForward(song, singer, lang);
+});
 
 function playSkipForward(song, singer, lang) {
   fetch("/edit_songs", {

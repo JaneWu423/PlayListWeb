@@ -22,9 +22,10 @@ $(function () {
               item.lang
             }</p></div><div class="symbol-item"><span><ion-icon name="heart-half-outline"></ion-icon>${
               item.like
-            } 赞</span><span><button onclick="playSkipForward('${
-              item.song
-            }', '${item.singer}', '${item.lang}')">
+            } 赞</span><span><button class="play-button" 
+            data-song="${item.song}" 
+            data-singer="${item.singer}" 
+            data-lang="${item.lang}" >
   <ion-icon name="play-skip-forward"></ion-icon>
 </button>点过 ${item.sung} 次</span>
             </div>`
@@ -43,9 +44,10 @@ $(function () {
               item.lang
             }</p></div><div class="symbol-item"><span><ion-icon name="heart-half-outline"></ion-icon>${
               item.like
-            } 赞</span><span><button onclick="playSkipForward('${
-              item.song
-            }', '${item.singer}', '${item.lang}')">
+            } 赞</span><span><button class="play-button" 
+            data-song="${item.song}" 
+            data-singer="${item.singer}" 
+            data-lang="${item.lang}" >
   <ion-icon name="play-skip-forward"></ion-icon>
 </button>点过 ${item.sung} 次</span>
             </div>`
