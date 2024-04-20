@@ -23,7 +23,7 @@ const SongSchema = new mongoose.Schema({
 });
 
 // Create a model for the Item collection
-const Item = mongoose.model("Item", SongSchema, "songs");
+const Item = mongoose.model("Item", SongSchema, "ktv");
 
 // Connect to MongoDB
 mongoose
@@ -91,7 +91,6 @@ app.post("/add_songs", async (req, res) => {
       }
       emitter.emit("update", {
         message: "New update available",
-        data: updatedItem,
       });
 
       return;
@@ -112,7 +111,6 @@ app.post("/add_songs", async (req, res) => {
       res.status(201).json(newItem);
       emitter.emit("update", {
         message: "New update available",
-        data: newItem,
       });
     }
   } catch (error) {
@@ -141,7 +139,6 @@ app.post("/edit_songs", async (req, res) => {
       res.status(200).json(updatedItem);
       emitter.emit("update", {
         message: "New update available",
-        data: updatedItem,
       });
       return;
     }else{
