@@ -80,10 +80,9 @@ eventSource.onmessage = function (event) {
 
 function playSkipForward(song, singer, lang) {
   fetch("/edit_songs", {
-    method: "post",
+    method: "POST",
     body: JSON.stringify({ song, singer, lang }),
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
   })
