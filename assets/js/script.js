@@ -1,5 +1,20 @@
 "use strict";
 
+
+const eventSource = new EventSource("/updates");
+
+eventSource.onopen = function (event) {
+  console.log("Connection opened");
+};
+
+eventSource.onerror = function (error) {
+  console.error("Error:", error);
+};
+
+eventSource.onmessage = function (event) {
+  location.reload(true);
+};
+
 // element toggle function
 const elementToggleFunc = function (elem) {
   elem.classList.toggle("active");
@@ -63,19 +78,6 @@ submitBtn.addEventListener("click", function () {
     });
 });
 
-const eventSource = new EventSource("/updates");
-
-eventSource.onopen = function (event) {
-  console.log("Connection opened");
-};
-
-eventSource.onerror = function (error) {
-  console.error("Error:", error);
-};
-
-eventSource.onmessage = function (event) {
-  location.reload(true);
-};
 
 $(document).on("click", ".play-button", function () {
   const song = $(this).data("song");
