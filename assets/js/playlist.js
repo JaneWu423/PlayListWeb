@@ -79,26 +79,3 @@ $(function () {
     },
   });
 });
-
-
-function playSkipForward(song, singer, lang) {
-  fetch("/edit_songs", {
-    method: "post",
-    body: JSON.stringify({song, singer, lang}),
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((res) => {
-      if (res.status === 201) {
-        console.log("Post successfully created!");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}

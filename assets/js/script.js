@@ -23,7 +23,7 @@ submitBtn.addEventListener("click", function () {
   const singer = $('input[name="singer"]').val().trim();
   const tags = $('input[name="tags"]').val().trim();
   const user = $('input[name="user"]').val().trim();
-  const sung = parseInt($('input[name="sung"]')) || 0;
+  const sung = parseInt($('input[name="sung"]').val()) || 0;
   const lang = $('select[name="lang"]').val();
 
   // Check if required fields are empty
@@ -76,3 +76,26 @@ eventSource.onerror = function (error) {
 eventSource.onmessage = function (event) {
   location.reload(true);
 };
+
+
+function playSkipForward(song, singer, lang) {
+  fetch("/edit_songs", {
+    method: "post",
+    body: JSON.stringify({ song, singer, lang }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((res) => {
+      if (res.status === 201) {
+        console.log("Post successfully created!");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}

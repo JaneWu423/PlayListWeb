@@ -125,7 +125,6 @@ app.post("/edit_songs", async (req, res) => {
   if (!song || !lang) {
     return res.status(400).json({ message: "Required fields are missing" });
   }
-  console.log(song, singer, lang);
   try {
     if (singer === 'undefined') {
       // Check if a song with the same name and singer already exists
