@@ -97,7 +97,8 @@ $(document).on("click", ".play-button", function () {
       .then((res) => {
         if (res.status === 201) {
           console.log("Post successfully created!");
-        }
+	}
+	window.location.reload();      
       })
       .catch((error) => {
         console.log(error);
