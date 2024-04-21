@@ -63,7 +63,7 @@ $(function () {
         langList.html(
           `<div class="title-wrapper">
                         <h5 class="h5">${langKind}</h5>
-                        <data value="${per}">${per}%</data>
+                        <data value="${per}">${per.toFixed(2)}%</data>
                         </div>
 
                         <div class="skill-progress-bg">
